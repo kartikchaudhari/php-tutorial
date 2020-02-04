@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/iteamCreatePost"
+        android:title="Create Post"
+        android:icon="@mipmap/plus"
+        android:orderInCategory="1"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/iteamSharePost"
+        android:title="Share this Post"
+        android:icon="@mipmap/share"
+        android:orderInCategory="2"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/iteamSettings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+</menu>

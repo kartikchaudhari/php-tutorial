@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">PHP Tutorial</string>
+    <string name="welcome_message">Welcome to PHP Tutorials</string>
+
+
+    <!-- login page -->
+    <string name="login_page_title">LOGIN</string>
+    <string name="btnLogin">L O G I N</string>
+    <string name="lnkRegister">New here? Register</string>
+    <string name="lnkForgotPass">Forgot Password ?</string>
+
+    <!-- registration page -->
+    <string name="create_a_new_account_title">CREATE NEW ACCOUNT</string>
+    <string name="tvFirstName">First Name</string>
+    <string name="tvLastName">Last Name</string>
+    <string name="tvEmail">Email</string>
+    <string name="tvPassword">Password</string>
+    <string name="tvConfirmPassword">Confirm Password</string>
+    <string name="btnRegister">R E G I S T E R</string>
+    <string name="lnkLogin">Already Member ? Login</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+
+    <!-- navigation drawer item values -->
+    <string name="menu_home">HOME</string>
+    <string name="menu_create_post">CREATE POST</string>
+    <string name="menu_manage_post">MANAGE POSTS</string>
+    <string name="menu_my_post">MY POSTS</string>
+
+
+    <!-- field validation error messages -->
+    <string name="firstNameError">Enter a valid First Name.</string>
+    <string name="lastNameError">Enter a valid Last Name.</string>
+    <string name="emailError">Enter a valid Email Address.</string>
+    <string name="passwordError">Password Required, of Greater then 6 Character. </string>
+    <string name="confirmPasswordError">Password does not match.</string>
+
+
+    <!-- add post screen -->
+    <string name="tv_author_hint">Author: </string>
+    <string name="tv_post_title_hint">Post Title</string>
+    <string name="tv_post_content_hint">Post Content</string>
+    <string name="btn_create_post">CREATE POST</string>
+    <string name="btn_select_image_post_title">Select Image for Post Title</string>
+    <string name="btn_select_image_post_content">Select Image for Post Description</string>
+
+    <!-- progress  dialog strings -->
+    <string name="login_dialog_title">Logging you in, Please wait...</string>
+
+    <!-- activity titles -->
+    <string name="title_activity_single_post">Read Post</string>
+    <string name="title_activity_zoomed_image">View Image</string>
+
+
+</resources>

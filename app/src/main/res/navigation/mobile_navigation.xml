@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_list_post">
+
+    <fragment
+        android:id="@+id/nav_list_post"
+        android:name="com.kartik.phptutorial.Fragments.ListPosts"
+        android:label="LIST POSTS"
+        tools:layout="@layout/fragment_list_posts" />
+
+    <fragment
+    android:id="@+id/nav_manage_post"
+    android:name="com.kartik.phptutorial.Fragments.ManagePost"
+    android:label="MANAGE POSTS"
+    tools:layout="@layout/fragment_manage_post" />
+
+    <fragment
+        android:id="@+id/nav_add_post"
+        android:name="com.kartik.phptutorial.Fragments.AddPost"
+        android:label="ADD POST"
+        tools:layout="@layout/fragment_add_post" />
+
+
+</navigation>
