@@ -15,6 +15,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.kartik.phptutorial.Adapters.ManagePostListAdapter;
 import com.kartik.phptutorial.Classes.Posts;
 import com.kartik.phptutorial.Classes.Utility;
+import com.kartik.phptutorial.DashboardActivity;
 import com.kartik.phptutorial.Helpers.dbHelper;
 import com.kartik.phptutorial.R;
 
@@ -35,6 +36,10 @@ public class ManagePost extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         v=inflater.inflate(R.layout.fragment_manage_post, container, false);
+
+        //set parent activity title to the title of fragment
+        ((DashboardActivity) getActivity()).setActionBarTitle("Manage Posts");
+
         recyclerView=v.findViewById(R.id.rvManageLists);
 
         adapter=new ManagePostListAdapter(getContext(),postsList);

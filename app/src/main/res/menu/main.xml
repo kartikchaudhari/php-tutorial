@@ -11,5 +11,20 @@
         android:id="@+id/iteamSettings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
+        android:icon="@mipmap/cogs"
+        app:showAsAction="never|withText" />
+
+    <item
+        android:id="@+id/iteamAbout"
+        android:orderInCategory="100"
+        android:title="@string/developer"
+        android:icon="@mipmap/code"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/iteamDonate"
+        android:icon="@mipmap/money"
+        android:orderInCategory="100"
+        android:title="@string/donate"
         app:showAsAction="never" />
 </menu>

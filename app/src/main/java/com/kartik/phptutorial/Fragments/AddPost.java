@@ -24,6 +24,7 @@ import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.kartik.phptutorial.Classes.Posts;
 import com.kartik.phptutorial.Classes.Utility;
+import com.kartik.phptutorial.DashboardActivity;
 import com.kartik.phptutorial.Helpers.dbHelper;
 import com.kartik.phptutorial.R;
 
@@ -35,7 +36,6 @@ import static android.app.Activity.RESULT_OK;
 
 public class AddPost extends Fragment {
 
-    private TextView tvAuthor;
     private EditText etPostTitle,etPost;
     private ToggleButton btnPost;
     private Button btnPostTitleImage,btnPostContentImage;
@@ -52,6 +52,9 @@ public class AddPost extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_add_post, container, false);
+
+        //set parent activity title to the title of fragment
+        ((DashboardActivity) getActivity()).setActionBarTitle("Add Post");
 
         //initialize the validation library
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);

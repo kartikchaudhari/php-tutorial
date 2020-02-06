@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.kartik.phptutorial.Adapters.PostListAdapter;
 import com.kartik.phptutorial.Classes.Posts;
 import com.kartik.phptutorial.Classes.Utility;
+import com.kartik.phptutorial.DashboardActivity;
 import com.kartik.phptutorial.Helpers.dbHelper;
 import com.kartik.phptutorial.Listners.ItemClickListener;
 import com.kartik.phptutorial.R;
@@ -41,6 +42,9 @@ public class ListPosts extends Fragment implements ItemClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         v=inflater.inflate(R.layout.fragment_list_posts, container, false);
+
+        //set parent activity title to the title of fragment
+        ((DashboardActivity) getActivity()).setActionBarTitle("List Post");
 
         recyclerView=v.findViewById(R.id.rvPostLists);
 
