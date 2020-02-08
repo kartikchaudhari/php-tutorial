@@ -42,7 +42,7 @@
     <string name="emailError">Enter a valid Email Address.</string>
     <string name="passwordError">Password Required, of Greater then 6 Character. </string>
     <string name="confirmPasswordError">Password does not match.</string>
-
+    <string name="amountRequiredError">Enter valid Amout value.</string>
 
     <!-- add post screen -->
     <string name="tv_author_hint">Author: </string>
@@ -58,6 +58,13 @@
     <!-- activity titles -->
     <string name="title_activity_single_post">Read Post</string>
     <string name="title_activity_zoomed_image">View Image</string>
+    <string name="title_activity_donate">Donate Now</string>
+    <string name="title_activity_contribute">Contribute</string>
+
+    <!-- long texts -->
+    <string name="contribute_text">Make Contribution, it will help us to create Great apps like PHP Tutorial.</string>
 
 
+    <!-- textview placeholders -->
+    <string name="enter_amount_placeholder">Enter Amount (Ex. 100)</string>
 </resources>

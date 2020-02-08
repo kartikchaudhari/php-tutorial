@@ -15,7 +15,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.ui.AppBarConfiguration;
 
 import com.google.android.material.navigation.NavigationView;
 import com.kartik.phptutorial.Fragments.AddPost;
@@ -111,7 +110,6 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         Intent intent=null;
 
         switch(id){
-
             case R.id.iteamCreatePost:
                 fragment=new AddPost();
                 break;
@@ -124,6 +122,9 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                 fragment=new AddPost();
                 break;
 
+            case R.id.iteamDonate:
+                intent=new Intent(DashboardActivity.this, ContributeActivity.class);
+                break;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -132,11 +133,10 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_frame,fragment);
             ft.commit();
+        }else{
+            startActivity(intent);
         }
-
         return true;
-
-
     }
     //set title for current activity
     public void setActionBarTitle(String title) {
