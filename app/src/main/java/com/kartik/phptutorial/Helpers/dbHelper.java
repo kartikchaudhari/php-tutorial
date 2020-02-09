@@ -6,8 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
-
 import com.kartik.phptutorial.Classes.Posts;
 import com.kartik.phptutorial.Classes.Users;
 
@@ -47,6 +45,7 @@ public class dbHelper extends SQLiteOpenHelper {
         if(db.insert("users",null,userData)!=-1){
             return true;
         }
+        db.close();
         return false;
     }
 
@@ -56,11 +55,6 @@ public class dbHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    //user login
-    public static boolean loginUser(){
-        return true;
-    }
-
 
     //create post
     public static boolean addPost(SQLiteDatabase db, Posts post){
@@ -68,10 +62,12 @@ public class dbHelper extends SQLiteOpenHelper {
         postData.put("post_title",post.getPost_title());
         postData.put("post_title_image",post.getPost_title_image());
         postData.put("post_content",post.getPost_content());
+        postData.put("post_content_image",post.getPost_content_image());
         postData.put("auther_id",post.getAuther_id());
         if(db.insert("posts",null,postData)!=-1){
             return true;
         }
+        db.close();
         return false;
     }
 
@@ -87,11 +83,19 @@ public class dbHelper extends SQLiteOpenHelper {
                 post.setPost_title(cursor.getString(cursor.getColumnIndex("post_title")));
                 post.setPost_title_image(cursor.getBlob(cursor.getColumnIndex("post_title_image")));
                 post.setPost_content(cursor.getString(cursor.getColumnIndex("post_content")));
+                post.setPost_content_image(cursor.getBlob(cursor.getColumnIndex("post_content_image")));
                 posts.add(post);
             }while (cursor.moveToNext());
         }
         cursor.close();
-
+        database.close();
         return posts;
+    }
+
+    public void deletePost(Posts post){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("posts", "post_id" + " = ?",
+                new String[]{String.valueOf(post.getPost_id())});
+        db.close();
     }
 }

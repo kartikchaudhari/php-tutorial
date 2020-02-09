@@ -21,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
+import com.kartik.phptutorial.Classes.Constants;
 import com.kartik.phptutorial.Classes.Users;
 import com.kartik.phptutorial.Helpers.dbHelper;
 
@@ -33,8 +34,6 @@ public class LoginActivity extends AppCompatActivity {
     private CheckBox cbRemember;
     private AwesomeValidation awesomeValidation;
 
-
-    public static final String user_prefs = "user_prefs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void  autoLoginUser(){
         //check for shared preference
-        sharedpreferences = getSharedPreferences(user_prefs,Context.MODE_PRIVATE);
+        sharedpreferences = getSharedPreferences(Constants.USER_PREF_NAME,Context.MODE_PRIVATE);
 
         if(sharedpreferences.contains("key_email") && sharedpreferences.contains("key_pass")){
             String email=sharedpreferences.getString("key_email",null);

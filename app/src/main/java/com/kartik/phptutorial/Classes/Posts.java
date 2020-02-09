@@ -5,6 +5,7 @@ public class Posts {
     private  String post_title;
     private byte[] post_title_image;
     private  String post_content;
+    private byte[] post_content_image;
     private  int auther_id;
 
 
@@ -16,6 +17,10 @@ public class Posts {
         this.post_title = post_title;
         this.post_content = post_content;
         this.auther_id = auther_id;
+    }
+
+    public Posts(String post_title) {
+        this.post_title = post_title;
     }
 
     public Posts(String post_title, String post_content, int auther_id) {
@@ -31,8 +36,12 @@ public class Posts {
         this.auther_id = auther_id;
     }
 
-    public Posts(String post_title) {
+    public Posts(String post_title, byte[] post_title_image, String post_content, byte[] post_content_image, int auther_id) {
         this.post_title = post_title;
+        this.post_title_image = post_title_image;
+        this.post_content = post_content;
+        this.post_content_image = post_content_image;
+        this.auther_id = auther_id;
     }
 
     public int getPost_id() {
@@ -51,12 +60,28 @@ public class Posts {
         this.post_title = post_title;
     }
 
+    public byte[] getPost_title_image() {
+        return post_title_image;
+    }
+
+    public void setPost_title_image(byte[] post_title_image) {
+        this.post_title_image = post_title_image;
+    }
+
     public String getPost_content() {
         return post_content;
     }
 
     public void setPost_content(String post_content) {
         this.post_content = post_content;
+    }
+
+    public byte[] getPost_content_image() {
+        return post_content_image;
+    }
+
+    public void setPost_content_image(byte[] post_content_image) {
+        this.post_content_image = post_content_image;
     }
 
     public int getAuther_id() {
@@ -67,11 +92,5 @@ public class Posts {
         this.auther_id = auther_id;
     }
 
-    public byte[] getPost_title_image() {
-        return post_title_image;
-    }
 
-    public void setPost_title_image(byte[] post_title_image) {
-        this.post_title_image = post_title_image;
-    }
 }

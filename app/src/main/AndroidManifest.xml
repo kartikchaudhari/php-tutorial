@@ -16,16 +16,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-
         tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
+        <activity
+            android:name=".DeveloperActivity"
+            android:label="@string/title_activity_developer"/>
 
+        <activity
+            android:name=".AboutAppActivity"
+            android:label="@string/title_activity_about_app"/>
         <activity
             android:name=".ContributeActivity"
             android:label="@string/title_activity_contribute"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:parentActivityName=".DashboardActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ZoomedImage"
             android:label="@string/title_activity_zoomed_image"
+            android:parentActivityName=".SinglePostActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SinglePostActivity"
@@ -47,10 +57,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-
-        <!-- paytm -->
+        </activity> <!-- paytm -->
         <activity
             android:name="com.paytm.pgsdk.PaytmPGActivity"
             android:configChanges="keyboardHidden|orientation|keyboard"

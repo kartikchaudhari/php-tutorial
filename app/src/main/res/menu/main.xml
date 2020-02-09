@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/iteamCreatePost"
-        android:title="Create Post"
+        android:title="@string/create_post"
         android:icon="@mipmap/plus"
         android:orderInCategory="1"
         app:showAsAction="ifRoom"
@@ -15,16 +15,32 @@
         app:showAsAction="never|withText" />
 
     <item
-        android:id="@+id/iteamAbout"
+        android:id="@+id/iteamContribute"
+        android:icon="@mipmap/money"
+        android:orderInCategory="100"
+        android:title="@string/contribute"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/iteamDeveloper"
         android:orderInCategory="100"
         android:title="@string/developer"
         android:icon="@mipmap/code"
         app:showAsAction="never" />
 
+
     <item
-        android:id="@+id/iteamDonate"
-        android:icon="@mipmap/money"
+        android:id="@+id/iteamAboutApp"
         android:orderInCategory="100"
-        android:title="@string/donate"
+        android:title="@string/aboutapp"
+        android:icon="@mipmap/code"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/iteamLogout"
+        android:orderInCategory="100"
+        android:title="@string/logout"
+        android:icon="@mipmap/code"
+        app:showAsAction="never" />
+
 </menu>

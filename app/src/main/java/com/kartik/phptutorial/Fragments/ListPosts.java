@@ -3,17 +3,16 @@ package com.kartik.phptutorial.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.kartik.phptutorial.Adapters.PostListAdapter;
 import com.kartik.phptutorial.Classes.Posts;
@@ -96,6 +95,7 @@ public class ListPosts extends Fragment implements ItemClickListener {
         intent.putExtra("post_title",post.getPost_title());
         intent.putExtra("post_content",post.getPost_content());
         intent.putExtra("post_title_image",post.getPost_title_image());
+        intent.putExtra("post_content_image",post.getPost_content_image());
         startActivity(intent);
     }
 }

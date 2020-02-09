@@ -4,12 +4,16 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.kartik.phptutorial.Helpers.dbHelper;
+
 import com.kartik.phptutorial.Classes.Posts;
+import com.kartik.phptutorial.Classes.Utility;
 import com.kartik.phptutorial.Listners.ItemClickListener;
 import com.kartik.phptutorial.R;
 
@@ -19,10 +23,30 @@ public class ManagePostListAdapter extends RecyclerView.Adapter<ManagePostListAd
     Context context;
     List<Posts> postsList;
     ItemClickListener clickListener;
+    dbHelper db;
+    //view holder class
+    public class ManagePostsListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public TextView postTitle;
+        public ImageView ivEdit,ivDelete;
+        public ManagePostsListViewHolder(View itemView) {
+            super(itemView);
+            postTitle=itemView.findViewById(R.id.list_item_text);
+            ivEdit=itemView.findViewById(R.id.ivEdit);
+            ivDelete=itemView.findViewById(R.id.ivDelete);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if (clickListener != null) clickListener.onClick(v, getAdapterPosition());
+        }
+    }
+
+
 
     public ManagePostListAdapter(Context context, List<Posts> postsList) {
         this.context = context;
         this.postsList = postsList;
+        this.db=new dbHelper(context);
     }
 
 
@@ -35,8 +59,26 @@ public class ManagePostListAdapter extends RecyclerView.Adapter<ManagePostListAd
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ManagePostsListViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ManagePostsListViewHolder holder, final int position) {
         holder.postTitle.setText(postsList.get(position).getPost_title());
+        holder.ivEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    delete(position);
+                }
+                catch(Exception e){
+                    Utility.makeToast(context,e.getMessage());
+                }
+            }
+        });
+
+        holder.ivDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utility.makeToast(context,Integer.toString(position));
+            }
+        });
     }
 
     @Override
@@ -44,24 +86,15 @@ public class ManagePostListAdapter extends RecyclerView.Adapter<ManagePostListAd
         return postsList.size();
     }
 
-    public void setClickListener(ItemClickListener clickListener) {
-        this.clickListener = clickListener;
+
+    //delete method
+    public void delete(int position){
+        //delete data from db
+        db.deletePost(postsList.get(position));
+
+        //remove node from the list
+        postsList.remove(position);
     }
 
-
-
-    public class ManagePostsListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView postTitle;
-        public ManagePostsListViewHolder(View itemView) {
-            super(itemView);
-            postTitle=itemView.findViewById(R.id.list_item_text);
-            itemView.setTag(itemView);
-            itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View v) {
-            if (clickListener != null) clickListener.onClick(v, getAdapterPosition());
-        }
-    }
+    //edit method
 }

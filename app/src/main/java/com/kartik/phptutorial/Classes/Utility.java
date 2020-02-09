@@ -1,13 +1,12 @@
 package com.kartik.phptutorial.Classes;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.widget.ImageView;
+import android.view.View;
 import android.widget.Toast;
 
-import com.kartik.phptutorial.SinglePostActivity;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -16,6 +15,13 @@ import java.io.InputStream;
 public class Utility {
     public static void makeToast(Context context, String msg){
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    public static void makeSnakeBar(View view, String msg){
+        Snackbar snackbar = Snackbar
+                .make(view, msg, Snackbar.LENGTH_LONG);
+
+        snackbar.show();
     }
 
     public static byte[] getImageBytes(Bitmap bitmap) {
@@ -39,5 +45,4 @@ public class Utility {
         }
         return byteBuffer.toByteArray();
     }
-
 }

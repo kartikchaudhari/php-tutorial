@@ -1,17 +1,14 @@
 package com.kartik.phptutorial;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
@@ -48,8 +45,8 @@ public class ContributeActivity extends AppCompatActivity implements PaytmPaymen
         setSupportActionBar(toolbar);
 
         //for back arrow in topbar
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
@@ -65,10 +62,7 @@ public class ContributeActivity extends AppCompatActivity implements PaytmPaymen
                     openProgressDialog();
                 }
             }
-
         });
-
-
     }
 
     private void openProgressDialog() {
@@ -200,6 +194,13 @@ public class ContributeActivity extends AppCompatActivity implements PaytmPaymen
     @Override
     public void onTransactionCancel(String s, Bundle bundle) {
         Toast.makeText(this, s + bundle.toString(), Toast.LENGTH_LONG).show();
+    }
+
+    //handle the back button
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
 }

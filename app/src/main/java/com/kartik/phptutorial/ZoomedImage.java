@@ -60,5 +60,12 @@ public class ZoomedImage extends AppCompatActivity {
         }).start();
     }
 
+    //handle back button
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
 
 }
